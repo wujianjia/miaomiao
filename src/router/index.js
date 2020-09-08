@@ -7,12 +7,13 @@ import Mine from './mine/index.js'
 Vue.use(VueRouter)
 
   const routes = [
+    
     Cenima,
-    Movie,
     Mine,
+    Movie,
     {
       path:'/*',
-      component:()=>import('../views/movie/Movie.vue')
+      redirect:{name:'movie'}
     }
 ]
 

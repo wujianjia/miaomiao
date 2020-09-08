@@ -37,5 +37,5 @@ export default {
         justify-content: center
         align-items: center
         .iconfont
-            font-size: 25px
+            font-size: 0.5rem
 </style>

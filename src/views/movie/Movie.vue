@@ -2,13 +2,16 @@
     <div>
         <headerconment :text="text" />
         <div class="movie-nav">
-            <ul>
-                <li class="city">大连<span class="iconfont">&#xe600;</span></li>
-                <li>正在热映</li>
-                <li>即将上映</li>
-                <li class="iconfont">&#xe616;</li>
+            <ul @click="handelClick">
+                <router-link tag="li" to="/movie/city" class="city"><p class="city-name">大连</p><span class="iconfont">&#xe600;</span></router-link>
+                <router-link tag="li" to="/movie/hot">正在热映</router-link>
+                <router-link tag="li" to="/movie/comingsoon">即将上映</router-link>
+                <router-link tag="li" to="/movie/search" class="iconfont">&#xe616;</router-link>
             </ul>
         </div>
+        <keep-alive>
+            <router-view />
+        </keep-alive>
         <tabbar />
     </div>
 </template>
@@ -26,7 +29,12 @@ export default {
     components:{
         Tabbar,
         headerconment
+    },
+    methods:{
+        handelClick (e) {
+        },
     }
+
 }
 </script>
 
@@ -36,7 +44,20 @@ export default {
         ul
             display: flex
             justify-content: space-around
-            height: 30px
-            line-height: 30px
+            height: 0.6rem
             font-size: 16px
+            align-item: center
+            line-height: 0.6rem
+            li
+                display: flex
+                justify-content: center
+                align-items: center
+                flex: 1
+            .iconfont
+                font-size: 0.48rem
+            .router-link-active
+                color:#f00
+                border-bottom: 1px solid #f00
+        
+
 </style>
